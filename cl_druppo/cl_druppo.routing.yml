@@ -8,6 +8,16 @@ cl_druppo.js_example:
     _permission: 'access content'
   options:
     no_cache: 'TRUE'
+
+cl_druppo.json_api:
+  path: '/api/json'
+  defaults:
+    _controller: 'Drupal\cl_druppo\Controller\JsonApiController::renderApi'
+    _title: 'JSON api'
+  methods:  [GET]
+  requirements:
+    _access: 'TRUE'    
+
 cl_druppo.simple_form:
   path: 'simple-form'
   defaults:
@@ -15,6 +25,7 @@ cl_druppo.simple_form:
     _title: 'CL Custom form'
   requirements:
     _permission: 'access content'
+
 cl_druppo.simple_ajax_form:
   path: 'simple-ajax-form'
   defaults:
