@@ -16,7 +16,15 @@ cl_druppo.json_api:
     _title: 'JSON api'
   methods:  [GET]
   requirements:
-    _access: 'TRUE'    
+    _access: 'TRUE'
+
+cl_druppo.article_list:
+  path: '/druppo/articles'
+  defaults:
+    _controller: '\Drupal\cl_druppo\Controller\ArticleController::page'
+    _title: 'Custom Articles List'
+  requirements:
+    _permission: 'access content'    
 
 cl_druppo.simple_form:
   path: 'simple-form'
