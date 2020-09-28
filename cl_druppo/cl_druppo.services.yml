@@ -1,0 +1,4 @@
+services:
+  cl_druppo.cow:
+    class: Drupal\cl_druppo\DruppoService
+    arguments: ['@current_user']
