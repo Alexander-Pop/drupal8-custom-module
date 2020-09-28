@@ -1,0 +1,7 @@
+cl_druppo.js_example:
+  path: '/cl/js-example'
+  defaults:
+    _title: 'Codelegacy JS Example'
+    _controller: '\Drupal\cl_druppo\Controller\ClJssetController::jsPage'
+  requirements:
+    _permission: 'access content'
