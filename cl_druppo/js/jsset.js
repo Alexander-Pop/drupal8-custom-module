@@ -7,6 +7,7 @@
   	'use strict';
 	Drupal.behaviors.jsDruppoTest = {
 		attach: function (context, settings) {
+			// In D8, $.once() needs to be combined with $.each()
 		  	$('.foo-class', context).once('some-arbitrary-but-unique-key').each(function () {
 		  		$(this).append('<button class="button foo-button">' + drupalSettings.js_example.title + '</button>');
 		  	});
