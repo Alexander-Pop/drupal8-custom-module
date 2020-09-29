@@ -1,0 +1,16 @@
+drupalup_tabs.tabs:
+  route_name: cl_druppo.article_list
+  title: Default primary tab
+  base_route: cl_druppo.article_list
+
+drupalup_tabs.tabs_second:
+  route_name: cl_druppo.simple_form
+  title: Simple Form
+  base_route: cl_druppo.article_list
+  weight: 2
+
+drupalup_tabs.tabs_third:
+  route_name: cl_druppo.simple_ajax_form
+  title: Ajax Form
+  base_route: cl_druppo.article_list
+  weight: 3
