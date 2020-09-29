@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * Implementing hook_theme().
+ */
+function cl_druppo_theme(
+	$existing, 
+	$type, 
+	$theme, 
+	$path
+) {
+
+  return [
+    'article_list' => [
+      'variables' => [
+      	'items' => [], 
+      	'title' => ''
+      ]
+    ]
+  ];
+}
+
+/**
+ * Implements hook_cron().
+ */
+function cl_druppo_cron() {
+  $sloagan = \Drupal::service('config.factory')
+    ->getEditable('system.site')
+    ->get('slogan');
+
+  if (is_numeric($sloagan)) {
+
+    $sloagan = $sloagan + 1;
+    
+    \Drupal::service('config.factory')
+      ->getEditable('system.site')
+      ->set('slogan', $sloagan)
+      ->save();
+
+  } else {
+
+    \Drupal::service('config.factory')
+      ->getEditable('system.site')
+      ->set('slogan', 0)
+      ->save();
+
+  }
+}

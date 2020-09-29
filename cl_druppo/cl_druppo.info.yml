@@ -2,3 +2,5 @@ name: Codelegacy Module
 description: Custom Logic For Drupal.
 type: module
 core: 8.x
+dependencies:
+  - 'drupal:hook_event_dispatcher'
