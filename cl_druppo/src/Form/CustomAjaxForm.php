@@ -42,6 +42,12 @@ class CustomAjaxForm extends FormBase {
       '#title' => $this->t('Second number'),
     ];
 
+    $form['name'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Name'),
+      '#required' => TRUE,
+    ];
+
     $form['actions'] = [
       '#type' => 'button',
       '#value' => $this->t('Calculate'),
@@ -69,6 +75,21 @@ class CustomAjaxForm extends FormBase {
     return $response;
   }
 
+    /**
+   * {@inheritdoc}
+   */
+  public function validateForm(
+    array &$form, 
+    FormStateInterface $form_state
+  ) {
+    if (strlen($form_state->getValue('name')) < 3) {
+      $form_state->setErrorByName(
+        'name',
+        $this->t('Your name should be longer than 3 letters in order for me to say it ;)')
+      );
+    }
+  }
+
   /**
    * {@inheritdoc}
    */
@@ -76,6 +97,7 @@ class CustomAjaxForm extends FormBase {
     array &$form, 
     FormStateInterface $form_state
   ) {
+    drupal_set_message( $this->t("Your name is ") . $form_state->getValue('name'));
   }
 
 }
