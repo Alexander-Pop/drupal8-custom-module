@@ -1,0 +1,5 @@
+cl_druppo.default:
+  title: 'CL Example Link'
+  route_name: cl_druppo.article_list
+  weight: 100
+  menu_name: main
