@@ -1,0 +1,17 @@
+services:
+  cl_druppo.cow:
+    class: Drupal\cl_druppo\DruppoService
+    arguments: ['@current_user']
+
+# need install hook_event_dispatcher module
+cl_druppo.hook_form_alter:
+  class: Drupal\cl_druppo\EventSubscriber\NodeInvitationFormAlterEventSubScriber
+    arguments: ['@current_user']
+      tags:
+        - { name: 'event_subscriber' }
+
+services:
+  preprocess.hook_entity_view:
+    class: 'Drupal\cl_druppo\EventSubscriber\EntityViewSubScriber'
+    tags:
+      - { name: 'event_subscriber' }        

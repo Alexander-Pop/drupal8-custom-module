@@ -1,7 +1,43 @@
 cl_druppo.js_example:
   path: '/cl/js-example'
   defaults:
-    _title: 'Codelegacy JS Example'
     _controller: '\Drupal\cl_druppo\Controller\ClJssetController::jsPage'
+    _title: 'Codelegacy JS Example'
+    _title_callback: '\Drupal\cl_druppo\Controller\ClJssetController::titleCallback'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
+
+cl_druppo.json_api:
+  path: '/api/json'
+  defaults:
+    _controller: 'Drupal\cl_druppo\Controller\JsonApiController::renderApi'
+    _title: 'JSON api'
+  methods:  [GET]
+  requirements:
+    _access: 'TRUE'
+
+cl_druppo.article_list:
+  path: '/druppo/articles'
+  defaults:
+    _controller: '\Drupal\cl_druppo\Controller\ArticleController::page'
+    _title: 'Custom Articles List'
+  requirements:
+    _permission: 'access content'    
+
+cl_druppo.simple_form:
+  path: 'simple-form'
+  defaults:
+    _form: '\Drupal\cl_druppo\Form\JustForm'
+    _title: 'CL Custom form'
+  requirements:
+    _permission: 'access content'
+
+cl_druppo.simple_ajax_form:
+  path: 'simple-ajax-form'
+  defaults:
+    _form: '\Drupal\cl_druppo\Form\CustomAjaxForm'
+    _title: 'CL Custom ajax form'
   requirements:
     _permission: 'access content'
